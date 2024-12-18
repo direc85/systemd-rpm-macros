@@ -31,8 +31,8 @@
 %_userunitdir /usr/lib/systemd/user
 %_presetdir /usr/lib/systemd/system-preset
 %_userpresetdir /usr/lib/systemd/user-preset
-%_udevhwdbdir /usr/lib/udev/hwdb.d
-%_udevrulesdir /usr/lib/udev/rules.d
+%_udevhwdbdir /lib/udev/hwdb.d
+%_udevrulesdir /lib/udev/rules.d
 %_journalcatalogdir /usr/lib/systemd/catalog
 %_tmpfilesdir /usr/lib/tmpfiles.d
 %_user_tmpfilesdir /usr/share/user-tmpfiles.d
