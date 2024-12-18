@@ -12,43 +12,37 @@
 # license that conforms to the Open Source Definition (Version 1.9)
 # published by the Open Source Initiative.
 
-# Please submit bugfixes or comments via https://bugs.opensuse.org/
-#
-
 
 Name:           systemd-rpm-macros
 Version:        24
-Release:        0
+Release:        1
 Summary:        RPM macros for systemd
 License:        LGPL-2.1-or-later
 Group:          Development/Tools/Building
 URL:            http://en.opensuse.org/openSUSE:Systemd_packaging_guidelines
 Source0:        macros.systemd
 Requires:       coreutils
-BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildArch:      noarch
-#!BuildIgnore:  util-linux
-#!BuildIgnore:  %{name}
 
-# We need our own definition of %{_unitdir}.
-%{load:%{S:0}}
+# From macros.systemd
+%global unitdir /usr/lib/systemd/system
 
 %description
-Starting with openSUSE 12.1, several RPM macros must be used to package systemd
-services files. This package provides these macros.
+
+Provide RPM macros used to package systemd services files.
 
 %prep
 
 %build
 
 %install
-install -Dm644 %{S:0} %{buildroot}%{_rpmconfigdir}/macros.d/macros.systemd
-mkdir -p %{buildroot}%{_unitdir}
+install -Dm644 %{SOURCE0} %{buildroot}%{_rpmconfigdir}/macros.d/macros.systemd
+mkdir -p %{buildroot}%{unitdir}
 
 %files
 %defattr(-,root,root)
 %{_rpmconfigdir}/macros.d/macros.systemd
-%dir %{_unitdir}
+%dir %{unitdir}
 
 %changelog
 
